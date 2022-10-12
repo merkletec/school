@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <script text="text/javascript" src="https://js.tappaysdk.com/tpdirect/v3"></script>
+    <!-- <script type="module" src="../src/components/TapPay.js"></script> -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+
+  <script>
+    // document.getElementById('creditCard').addEventListener('click', function () {
+    //   console.log('1')
+    //   tayPay()
+    // })
+    $('#creditCard').on('click', function () {
+      tayPay()
+    })
+    const tayPay = () => {
+      TPDirect.setupSDK('12348', 'app_pa1pQcKoY22IlnSXq5m5WP5jFKzoRG58VEXpT7wU62ud7mMbDOGzCYIlzzLF', 'sandbox')
+
+      // 把 TapPay 內建輸入卡號的表單給植入到 div 中
+      TPDirect.card.setup({
+        fields: {
+          number: {
+            // css selector
+            element: '#card-number',
+            placeholder: '**** **** **** ****',
+          },
+          expirationDate: {
+            // DOM object
+            element: document.getElementById('card-expiration-date'),
+            placeholder: 'MM / YY',
+          },
+          ccv: {
+            element: '#card-ccv',
+            placeholder: 'ccv',
+          },
+        },
+
+        styles: {
+          // Style all elements
+          input: {
+            color: 'gray',
+          },
+          // Styling ccv field
+          'input.ccv': {
+            // 'font-size': '16px'
+          },
+          // Styling expiration-date field
+          'input.expiration-date': {
+            // 'font-size': '16px'
+          },
+          // Styling card-number field
+          'input.card-number': {
+            // 'font-size': '16px'
+          },
+          // style focus state
+          ':focus': {
+            // 'color': 'black'
+          },
+          // style valid state
+          '.valid': {
+            color: 'green',
+          },
+          // style invalid state
+          '.invalid': {
+            color: 'red',
+          },
+          // Media queries
+          // Note that these apply to the iframe, not the root window.
+          '@media screen and (max-width: 400px)': {
+            input: {
+              color: 'orange',
+            },
+          },
+        },
+      })
+      document.getElementById('submit-button').addEventListener('click', function (event) {
+        onSubmit(event)
+      })
+      let prime
+      function onSubmit(event) {
+        event.preventDefault()
+
+        // 取得 TapPay Fields 的 status
+        const tappayStatus = TPDirect.card.getTappayFieldsStatus()
+
+        // 確認是否可以 getPrime
+        if (tappayStatus.canGetPrime === false) {
+          alert('信用卡資訊填寫錯誤')
+          return
+        }
+
+        // Get prime
+        TPDirect.card.getPrime((result) => {
+          if (result.status !== 0) {
+            alert('傳送失敗')
+            return
+          }
+          prime = result.card.prime
+          console.log(`成功!prime=${prime}`)
+          alert('結帳成功')
+          localStorage.clear()
+          setTimeout(() => {
+            window.location.reload()
+          }, 500)
+        })
+      }
+    }
+  </script>
+</html>
