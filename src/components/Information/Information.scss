@@ -1,0 +1,198 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+.InformationDiv {
+  margin: 0 auto;
+  // text-align: center;
+  .memberInformation {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    border-bottom: 2px solid black;
+    margin-top: 7%;
+    @include pad {
+      flex-wrap: wrap;
+    }
+    .defaultImg {
+      margin: 0 2%;
+      border-radius: 100%;
+      border: 1px solid black;
+      width: 200px;
+      height: 200px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .topInformation {
+      flex-grow: 3;
+      font-size: 20px;
+      @include pad {
+        width: 50%;
+      }
+      .basic {
+        padding: 5% 0;
+        display: flex;
+        p {
+          margin: 0 5%;
+          border-bottom: 1px solid black;
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+      .email {
+        margin: 0 5% 5% 5%;
+        border-bottom: 1px solid black;
+        p {
+          font-weight: bold;
+          padding: 2% 0 0 2%;
+        }
+      }
+      .address {
+        margin: 0 5% 5% 5%;
+        border-bottom: 1px solid black;
+        p {
+          font-weight: bold;
+          padding: 2% 0 0 2%;
+        }
+      }
+    }
+    .changetopInformation {
+      flex-grow: 3;
+      font-size: 20px;
+      @include pad {
+        width: 50%;
+      }
+      .basic {
+        padding: 5% 0;
+        display: flex;
+        p {
+          margin: 0 5%;
+          border-bottom: 1px solid black;
+          input {
+            width: 77%;
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+        #name {
+          @include pad {
+            width: 100px;
+          }
+        }
+      }
+      .email {
+        margin: 0 5% 5% 5%;
+        border-bottom: 1px solid black;
+        p {
+          font-weight: bold;
+          padding: 2% 0 0 2%;
+        }
+      }
+      .address {
+        margin: 0 5% 5% 5%;
+        border-bottom: 1px solid black;
+        input {
+          width: 80%;
+          font-size: 20px;
+          font-weight: bold;
+          margin: 2% 0 0 2%;
+        }
+      }
+    }
+    .button {
+      flex-grow: 1;
+      align-self: flex-end;
+      button {
+        display: block;
+        margin-bottom: 3%;
+        @include pad {
+          margin: 2% auto;
+        }
+      }
+    }
+  }
+  .coupon {
+    position: relative;
+    max-width: 400px;
+    height: 160px;
+    margin: 50px auto;
+    background-image: radial-gradient(circle at 1px 8px, transparent 6px, #ff9e6d 6px, #ff9e6d 0px),
+      radial-gradient(circle at 199px 8px, transparent 6px, #ff9e6d 6px, #ff9e6d 0px);
+    background-size: 200px 18px;
+    background-position: 0 0, 200px 0;
+    background-repeat-x: no-repeat;
+
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 160px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .coupon::before {
+    position: absolute;
+    content: '';
+    left: 240px;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    border-left: 1px dashed #fff;
+  }
+  .coupon::after {
+    position: absolute;
+    content: attr(data-attr);
+    font-size: 26px;
+    width: 70px;
+    top: 50%;
+    right: 2%;
+    transform: translate(-50%, -50%);
+    line-height: 40px;
+    letter-spacing: 5px;
+  }
+
+  .memberShopList {
+    text-align: center;
+    margin-top: 2%;
+    .listOutLine {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 2%;
+      .outLine {
+        border-radius: 10px;
+        border: 1px solid rgb(23, 5, 87);
+        background-color: rgb(182, 221, 223);
+        color: black;
+        width: 44%;
+        margin: 2% 2%;
+        @include mobile {
+          width: 95%;
+        }
+        ul {
+          li {
+            text-align: left;
+            padding: 2%;
+            p {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+    .close {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,533 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+.frame-pic {
+  position: relative;
+  .blog {
+    position: relative;
+    .frame {
+      transition: opacity 1s;
+      .frame-pic-text {
+        font-size: 36px;
+        font-weight: bold;
+        color: #efefef;
+        position: absolute;
+        top: 40%;
+        right: 5%;
+        @include pad {
+          font-size: 28px;
+          text-align: right;
+        }
+        @include mobile {
+          font-size: 16px;
+          text-align: right;
+          max-width: 100px;
+          top: 10%;
+          right: 10%;
+        }
+        h1:nth-child(1) {
+          margin-bottom: 20px;
+          margin-left: 80px;
+          @include mobile {
+            margin: 0 0 20px 0;
+          }
+        }
+        h1:nth-child(2) {
+          padding-left: 300px;
+          margin-bottom: 70px;
+          margin-right: 50px;
+          @include mobile {
+            margin: 0 0 20px 0;
+            padding: 0;
+          }
+          @include pad {
+            margin-bottom: 20px;
+          }
+        }
+        p {
+          font-size: 28px;
+          text-align: right;
+          color: #4c4948;
+          margin-bottom: 60px;
+          @include mobile {
+            font-size: 12px;
+            margin-bottom: 0;
+          }
+          @include pad {
+            font-size: 16px;
+            margin-bottom: 60px;
+          }
+        }
+      }
+    }
+    .frame-pic1 {
+      position: relative;
+    }
+    .frame-pic2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+    }
+    .frame-pic3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      .frame-pic3-text {
+        position: absolute;
+        top: 40%;
+        right: 5%;
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 1.5;
+        @include pad() {
+          position: absolute;
+          top: 40%;
+          right: 5%;
+          font-size: 28px;
+          font-weight: bold;
+          line-height: 1.5;
+        }
+        @include mobile() {
+          font-size: 16px;
+        }
+        h1:nth-child(2) {
+          margin-bottom: 20px;
+          margin-left: 80px;
+          @include pad() {
+            text-align: right;
+            margin: 0 0 20px 0;
+            padding: 0;
+          }
+          @include mobile() {
+            padding: 0;
+            margin: 0;
+          }
+        }
+        h1:nth-child(1) {
+          padding-left: 300px;
+          margin-bottom: 70px;
+          margin-right: 50px;
+          @include mobile() {
+            padding: 0;
+            margin: 0;
+          }
+          @include pad() {
+            margin: 0 0 20px 0;
+          }
+        }
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    @include mobile() {
+      bottom: 20px;
+    }
+    li {
+      width: 15px;
+      height: 15px;
+      background-color: white;
+      border-radius: 50%;
+      margin: 10px;
+      cursor: pointer;
+      @include mobile() {
+        display: none;
+      }
+    }
+  }
+  input {
+    background-color: #4c4948;
+    width: 140px;
+    line-height: 38px;
+    text-align: center;
+    font-weight: bold;
+    color: #efefef;
+    font-size: 16px;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 100;
+    @include mobile() {
+      width: 60px;
+      line-height: 19px;
+      font-size: 6px;
+      bottom: 3px;
+      left: 10px;
+    }
+  }
+}
+
+.main-story {
+  background-image: url(../../img/index-5.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  display: flex;
+  align-items: center;
+
+  @include pad() {
+    height: auto;
+  }
+  .main-story-text {
+    margin-left: 50px;
+    text-align: center;
+    width: 300px;
+    @include pad() {
+      margin-left: 10px;
+      width: 300px;
+    }
+    @include mobile() {
+      margin: 30px 10px;
+      width: auto;
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 80px;
+      @include pad() {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 40px 0;
+      }
+      @include mobile() {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+    }
+    p {
+      font-size: 20px;
+      margin-bottom: 80px;
+      line-height: 1.4em;
+      @include mobile() {
+        font-size: 12px;
+        margin-bottom: 20px;
+        line-height: 1.4em;
+      }
+    }
+    input {
+      background-color: #4c4948;
+      width: 140px;
+      line-height: 38px;
+      text-align: center;
+      font-weight: bold;
+      color: #efefef;
+      font-size: 16px;
+      border-radius: 20px;
+      outline: none;
+      cursor: pointer;
+      @include pad() {
+        margin-bottom: 20px;
+      }
+      @include mobile() {
+        width: 60px;
+        line-height: 19px;
+        font-size: 6px;
+        bottom: 3px;
+        left: 10px;
+      }
+    }
+  }
+}
+
+.main-discount {
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #efefef;
+  @include mobile() {
+    max-width: 300px;
+  }
+  .discount-top {
+    display: flex;
+    align-items: center;
+    .discount-top-img {
+      width: 100px;
+      margin-left: 20px;
+      margin-right: 20px;
+      @include mobile() {
+        width: 50px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: bold;
+      @include mobile() {
+        font-size: 20px;
+      }
+    }
+  }
+  ul {
+    display: flex;
+    @include mobile() {
+      flex-wrap: wrap;
+    }
+    li {
+      width: 400px;
+      text-align: center;
+      padding: 20px;
+      background-color: #e0d6c3;
+      position: relative;
+      img {
+        width: 150px;
+        border-radius: 100%;
+        border: 1px solid white;
+        margin-bottom: 20px;
+        @include mobile() {
+          width: 120px;
+        }
+      }
+      #img9 {
+        width: 60px;
+        border-radius: 0;
+        border: 0;
+        position: absolute;
+        top: 0;
+        right: 90px;
+      }
+      h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        letter-spacing: 5px;
+        @include mobile() {
+          font-size: 20px;
+          margin-bottom: 20px;
+          font-weight: bold;
+          letter-spacing: 5px;
+        }
+      }
+      p {
+        font-size: 20px;
+        font-weight: 800;
+        @include mobile() {
+          font-size: 16px;
+        }
+      }
+    }
+    #discount-block-two {
+      background-color: #b4977b;
+      color: #efefef;
+      h2 {
+        margin-top: 70px;
+        @include mobile() {
+          margin-top: 70px;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+.step {
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: center;
+  background-color: #efefef;
+  @include mobile() {
+    max-width: 300px;
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    padding: 25px 50px;
+    margin: 20px 0;
+    background-color: #b4977b;
+    display: inline-block;
+    @include mobile() {
+      font-size: 20px;
+    }
+  }
+  .step-block {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .step-block1 {
+      @include pad() {
+        margin: 0 40px;
+      }
+      @include mobile() {
+        padding: 10px;
+      }
+      > div {
+        text-align: left;
+        border-radius: 100%;
+        width: 1vw;
+        border: 1px solid #ffb997;
+        text-align: center;
+        padding: 5px;
+        background-color: #ffb997;
+        font-size: 18px;
+        font-weight: bold;
+        @include mobile() {
+          border-radius: 100%;
+          width: 2vw;
+          font-size: 18px;
+        }
+      }
+      p {
+        line-height: 1.5;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 25px 0;
+        @include mobile() {
+          font-size: 16px;
+        }
+      }
+      img {
+        @include mobile() {
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+
+.main-items {
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: center;
+  background-color: white;
+  h2 {
+    font-size: 32px;
+    font-weight: bold;
+    padding: 10px;
+    @include mobile() {
+      font-size: 20px;
+    }
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include pad() {
+      justify-content: space-around;
+    }
+    @include mobile() {
+      justify-content: center;
+    }
+    li {
+      width: 350px;
+      font-size: 20px;
+      font-weight: 500;
+      /* padding: 10px 50px; */
+      img {
+        width: 300px;
+        @include mobile() {
+          width: 200px;
+        }
+      }
+      p {
+        padding: 25px;
+        @include mobile() {
+          font-size: 16px;
+          padding: 15px 50px;
+        }
+      }
+      input {
+        background-color: #4c4948;
+        max-width: 100px;
+        line-height: 30px;
+        text-align: center;
+        /* font-weight: bold; */
+        color: #efefef;
+        font-size: 16px;
+        border-radius: 20px;
+        outline: none;
+        cursor: pointer;
+        margin: 0 10px 10px;
+        @include mobile() {
+          max-width: 80px;
+          line-height: 20px;
+          font-size: 6px;
+          border-radius: 20px;
+          margin: 0 10px 10px;
+        }
+      }
+    }
+  }
+}
+.allScreen {
+  width: 100%;
+  z-index: 150;
+  opacity: 0.5;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  height: 100%;
+}
+.searchBox {
+  margin-top: 80px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  z-index: 200;
+  background-color: white;
+  outline: 1px solid black;
+  input {
+    margin-top: 20%;
+    line-height: 2;
+    margin-left: 10%;
+    font-size: 20px;
+    margin-bottom: 5%;
+  }
+  p {
+    font-size: 20px;
+    margin-left: 10%;
+    margin-bottom: 5%;
+  }
+  ul {
+    width: 100%;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0px 5%;
+      img {
+        width: 20%;
+      }
+      h2 {
+        font-size: 18px;
+        margin-left: 5%;
+      }
+      p {
+        margin-left: 5%;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+    }
+  }
+}

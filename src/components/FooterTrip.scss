@@ -1,0 +1,38 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+.footer-trip {
+  background-color: #ebebeb;
+  @include mobile() {
+    font-size: 6px;
+  }
+  .footer-trip-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    p {
+      @include mobile() {
+        margin: 0;
+      }
+    }
+    p:nth-child(1) {
+      margin-left: 50px;
+      flex-grow: 2;
+    }
+    p:nth-child(2) {
+      flex-grow: 1;
+    }
+    p:nth-child(3) {
+      flex-grow: 1;
+    }
+  }
+}

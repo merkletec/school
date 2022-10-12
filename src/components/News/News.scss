@@ -1,0 +1,209 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+.news {
+  max-width: 1200px;
+  margin: 120px auto 30px;
+  @include mobile {
+    margin: 20px auto 30px;
+  }
+  padding-top: 10px;
+  .title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #4c4948;
+    @include mobile {
+      font-size: 28px;
+    }
+    img {
+      position: relative;
+      top: -20px;
+      width: 30%;
+    }
+  }
+  .main {
+    position: relative;
+    .main-top {
+      text-align: center;
+      position: relative;
+      margin-bottom: 50px;
+
+      .newsSlider {
+        position: relative;
+        .slick-slide {
+          img {
+            margin: 0 auto;
+            @include pad {
+              width: 100%;
+            }
+          }
+          p {
+            font-size: 20px;
+            background-color: white;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid;
+          }
+        }
+        .slick-dots {
+          bottom: 130px;
+          li button:before {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  .main-content {
+    background-color: #ffffff;
+    overflow: hidden;
+    @include mobile {
+      margin-top: 100px;
+    }
+    .block {
+      height: 300px;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      opacity: 0;
+      transition: all 0.5s;
+      @include mobile {
+        grid-template-columns: 100%;
+        height: 250px;
+      }
+      .block-left {
+        padding: 50px;
+        position: relative;
+        box-sizing: border-box;
+        line-height: 1.4;
+        @include mobile {
+          padding: 20px 50px;
+          text-align: center;
+        }
+        h2 {
+          font-size: 28px;
+          font-weight: bold;
+          margin-bottom: 20px;
+          @include mobile {
+            font-size: 20px;
+          }
+        }
+        p {
+          font-size: 20px;
+          font-weight: 400;
+          @include mobile {
+            font-size: 16px;
+          }
+        }
+        input {
+          position: absolute;
+          top: 70%;
+          left: 40%;
+          background-color: #4c4948;
+          width: 140px;
+          line-height: 38px;
+          text-align: center;
+          font-weight: bold;
+          color: #efefef;
+          font-size: 16px;
+          border-radius: 20px;
+          outline: none;
+          cursor: pointer;
+          @include mobile {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+          }
+        }
+      }
+      .block-right {
+        text-align: center;
+        @include mobile {
+          display: none;
+        }
+        img {
+          width: 300px;
+          padding: 50px;
+          box-sizing: border-box;
+        }
+        #img1 {
+          width: 80%;
+        }
+      }
+      .block1-left {
+        text-align: center;
+        @include mobile {
+          display: none;
+        }
+        img {
+          width: 300px;
+          padding: 50px;
+          box-sizing: border-box;
+        }
+      }
+      .block1-right {
+        padding: 50px;
+        line-height: 1.4;
+        position: relative;
+        @include mobile {
+          text-align: center;
+          padding: 20px 40px;
+        }
+        h2 {
+          font-size: 28px;
+          font-weight: bold;
+          margin-bottom: 20px;
+          @include mobile {
+            font-size: 20px;
+          }
+        }
+        p {
+          font-size: 20px;
+          font-weight: 400;
+          @include mobile {
+            font-size: 16px;
+          }
+        }
+        input {
+          position: absolute;
+          top: 70%;
+          left: 40%;
+          background-color: #4c4948;
+          width: 140px;
+          line-height: 38px;
+          text-align: center;
+          font-weight: bold;
+          color: #efefef;
+          font-size: 16px;
+          border-radius: 20px;
+          outline: none;
+          cursor: pointer;
+          @include mobile {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    .align-left {
+      transform: translateX(-20%) scale(0.95);
+    }
+    .align-right {
+      transform: translateX(20%) scale(0.95);
+      background-color: #efefef;
+    }
+    .active {
+      opacity: 1;
+      transform: translateX(0%) scale(1);
+    }
+  }
+}

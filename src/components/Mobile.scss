@@ -1,0 +1,58 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+.mobile {
+  display: none;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 50px;
+  z-index: 1000;
+  background-color: black;
+  @include pad() {
+    display: flex;
+  }
+  li {
+    width: 100%;
+    text-align: center;
+    margin: 5px;
+    &:nth-child(1) {
+      border-right: 1px solid white;
+    }
+    img {
+      padding: 5px;
+      border: 1px solid;
+      border-radius: 50%;
+      background-color: white;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+      position: relative;
+      padding-left: 20px;
+    }
+    .mobileshopCount {
+      display: block;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 1.2;
+      border-radius: 50%;
+      border: 1px solid;
+      background-color: #fff;
+      opacity: 0.9;
+      font-weight: bold;
+      color: black;
+      position: absolute;
+      top: 20%;
+      right: 42%;
+    }
+  }
+}

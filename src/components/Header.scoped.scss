@@ -1,0 +1,206 @@
+@import './_reset.css';
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+body {
+  font-size: 16px;
+  color: #4c4948;
+  background: url(../img/backgroumd.png);
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #4c4948;
+  header {
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #e0d6c3;
+    opacity: 0.7;
+    z-index: 100;
+    transition: all 0.5s;
+    @include pad() {
+      position: static;
+      opacity: 1;
+    }
+    .header-content {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      box-sizing: border-box;
+      position: relative;
+      .fa {
+        position: absolute;
+        top: 150%;
+        left: 5%;
+        font-size: 20px;
+        display: none;
+        @include pad() {
+          display: inline-block;
+        }
+      }
+      .header_img {
+        width: 90px;
+        height: 60px;
+        position: absolute;
+        left: 15%;
+        background:url(../img/wheel.png) ;
+        @include pad() {
+          width: 60px;
+          top: 100%;
+          left: 15%;
+        }
+        img {
+          width: 100%;
+         
+        }
+      }
+      .header-list {
+        display: flex;
+        justify-content: space-around;
+        margin-left: 200px;
+        position: absolute;
+        margin: auto;
+        @include pad() {
+          display: block;
+          position: fixed;
+          /* left: -80vw; */
+          top: 80px;
+          width: 100%;
+          background-color: #fff;
+          z-index: 500;
+        }
+        > li {
+          padding: 10px 25px;
+          line-height: 40px;
+          text-align: center;
+          width: 5.5em;
+          @include pad() {
+            margin: 0 auto;
+          }
+          &:hover ul {
+            display: block;
+            margin-top: 5px;
+            background-color: #e0d6c3;
+            text-align: center;
+          }
+          a {
+            text-decoration: none;
+            color: #4c4948;
+            font-weight: bold;
+          }
+          .btn-2 {
+            letter-spacing: 0;
+            &:hover {
+              letter-spacing: 4px;
+              border-bottom: 1px solid #9a4d36;
+              ::after {
+                backface-visibility: hidden;
+                border-color: #9a4d36;
+                transition: width 350ms ease-in-out;
+                width: 80%;
+              }
+            }
+            &:active {
+              letter-spacing: 4px;
+            }
+            ::after {
+              backface-visibility: hidden;
+              border: 0.5px solid #e0d6c3;
+              bottom: 0px;
+              content: ' ';
+              display: block;
+              margin: 0 auto;
+              position: relative;
+              transition: all 280ms ease-in-out;
+              width: 0;
+            }
+          }
+          ul {
+            display: none;
+          }
+        }
+      }
+      .header-icon {
+        display: flex;
+        line-height: 70px;
+        position: absolute;
+        right: 10%;
+        li {
+          margin-left: 30px;
+        }
+        .search {
+          position: relative;
+        }
+        img {
+          &:hover {
+            border-radius: 8%;
+            opacity: 0.7;
+          }
+        }
+        a {
+          border-radius: 4px;
+          text-align: center;
+          text-decoration: none;
+          position: relative;
+          transition: all 0.5s;
+          .shopCount {
+            display: block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 1.2;
+            border-radius: 50%;
+            border: 1px solid;
+            background-color: #fff;
+            opacity: 0.9;
+            font-weight: bold;
+            color: black;
+            position: absolute;
+            top: 20%;
+            right: -50%;
+          }
+          &:hover span {
+            bottom: -50px;
+            visibility: visible;
+            opacity: 1;
+          }
+          span {
+            color: black;
+            display: block;
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            left: -25px;
+            right: -25px;
+            padding: 5px 7px;
+            z-index: -1;
+            font-size: 16px;
+            border-radius: 2px;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          }
+        }
+      }
+      .hideHam {
+        @include pad() {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.hide {
+  display: none;
+}
+.hideUp {
+  transform: translateY(-100%);
+}

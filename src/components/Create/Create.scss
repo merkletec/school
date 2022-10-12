@@ -1,0 +1,48 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+.create {
+  max-width: 600px;
+  margin: 120px auto 30px;
+  background-color: white;
+  padding-top: 10px;
+  @include mobile {
+    margin: 20px auto 30px;
+  }
+  .title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #4c4948;
+    @include mobile {
+      font-size: 28px;
+    }
+    img {
+      position: relative;
+      top: -20px;
+      width: 30%;
+    }
+  }
+  a {
+    margin: 20px 0 20px 20px;
+  }
+  .content {
+    width: 400px;
+    /* outline:1px solid; */
+    margin: 0 auto;
+    h3,
+    input,
+    select {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,366 @@
+@import url(./_reset.css);
+
+body {
+  font-size: 16px;
+  color: #4c4948;
+  background: url(../img/backgroumd.png);
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #4c4948;
+}
+
+/*header*/
+header {
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #e0d6c3;
+  opacity: 0.7;
+  z-index: 100;
+  transition: all 0.5s;
+}
+.header-content {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+.header_img {
+  width: 90px;
+  height: 60px;
+  position: absolute;
+  left: 15%;
+}
+.header_img img {
+  width: 100%;
+}
+.fa {
+  position: absolute;
+  top: 150%;
+  left: 5%;
+  font-size: 20px;
+  display: none;
+}
+.header-list {
+  display: flex;
+  /* justify-content: space-around; */
+  /* margin-left: 200px; */
+  position: absolute;
+  margin: auto;
+}
+.header-list li > ul {
+  display: none;
+}
+.header-list a {
+  text-decoration: none;
+  color: #4c4948;
+  font-weight: bold;
+}
+
+.header-list li:hover ul {
+  display: block;
+  margin-top: 5px;
+  background-color: #e0d6c3;
+  text-align: center;
+}
+.header-list > li {
+  padding: 10px 25px;
+  line-height: 40px;
+  text-align: center;
+  width: 5.5em;
+}
+.header-icon {
+  display: flex;
+  line-height: 70px;
+  position: absolute;
+  right: 10%;
+}
+.header-icon li {
+  margin-left: 30px;
+}
+.header-icon img:hover {
+  border-radius: 8%;
+  opacity: 0.7;
+  /* border:1px solid black; */
+  /* box-sizing: border-box; */
+}
+
+.btn-2 {
+  letter-spacing: 0;
+}
+
+.btn-2:hover,
+.btn-2:active {
+  letter-spacing: 4px;
+}
+
+.btn-2:after {
+  backface-visibility: hidden;
+  border: 0.5px solid #e0d6c3;
+  bottom: 0px;
+  content: ' ';
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.btn-2:hover:after {
+  backface-visibility: hidden;
+  border-color: #9a4d36;
+  transition: width 350ms ease-in-out;
+  width: 80%;
+}
+.search {
+  position: relative;
+}
+#search-block {
+  width: 150px;
+  height: 30px;
+  outline: 1px solid black;
+  position: absolute;
+  top: 20%;
+  right: 1%;
+}
+.hide {
+  display: none;
+}
+.header-icon a {
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.5s;
+}
+.shopCount {
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 1.2;
+  border-radius: 50%;
+  border: 1px solid;
+  background-color: #fff;
+  opacity: 0.9;
+  font-weight: bold;
+  color: black;
+  position: absolute;
+  top: 20%;
+  right: -50%;
+}
+.header-icon a span {
+  color: black;
+  display: block;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  left: -25px;
+  right: -25px;
+  padding: 5px 7px;
+  z-index: -1;
+  font-size: 16px;
+  border-radius: 2px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.header-icon a:hover span {
+  bottom: -50px;
+  visibility: visible;
+  opacity: 1;
+}
+.hideUp {
+  transform: translateY(-100%);
+}
+.mobile {
+  display: none;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 50px;
+  z-index: 1000;
+  background-color: black;
+}
+.mobile li {
+  width: 100%;
+  text-align: center;
+  margin: 5px;
+}
+.mobile li:nth-child(1) {
+  border-right: 1px solid white;
+}
+.mobile li img {
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 50%;
+  background-color: white;
+}
+.mobile a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  padding-left: 20px;
+}
+.mobileshopCount {
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 1.2;
+  border-radius: 50%;
+  border: 1px solid;
+  background-color: #fff;
+  opacity: 0.9;
+  font-weight: bold;
+  color: black;
+  position: absolute;
+  top: 20%;
+  right: 42%;
+}
+
+/*footer*/
+footer {
+  background-color: #d0d0d0;
+}
+.footer-content {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.footer-left {
+  margin-right: 180px;
+}
+.footer-left h3 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.footer-left p {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.footer-left ul {
+  display: flex;
+  justify-content: center;
+}
+.footer-left li {
+  margin-right: 20px;
+}
+.footer-right ul {
+  display: flex;
+}
+.footer-right li {
+  margin-right: 120px;
+}
+.footer-right h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.footer-right li a {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #3d3d3d;
+}
+
+.footer-right li a:hover {
+  font-size: 18px;
+  text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.footer-right li p {
+  margin-bottom: 10px;
+}
+
+.footer-trip {
+  background-color: #ebebeb;
+}
+
+.footer-trip-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+}
+.footer-trip-content p:nth-child(1) {
+  margin-left: 50px;
+  flex-grow: 2;
+}
+.footer-trip-content p:nth-child(2) {
+  flex-grow: 1;
+}
+.footer-trip-content p:nth-child(3) {
+  flex-grow: 1;
+}
+
+.top {
+  width: 50px;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 2000;
+}
+
+/*414*/
+@media screen and (max-width: 768px) {
+  /*header*/
+  header {
+    position: static;
+    opacity: 1;
+  }
+  .header_img {
+    width: 60px;
+    top: 100%;
+    left: 15%;
+  }
+  .fa {
+    display: inline-block;
+  }
+  .header-content .hideHam {
+    display: none;
+  }
+  .header-list {
+    display: block;
+    position: fixed;
+    /* left: -80vw; */
+    top: 80px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 500;
+  }
+  .header-list > li {
+    margin: 0 auto;
+  }
+
+  /*footer*/
+  footer {
+    display: none;
+  }
+  .footer-trip {
+    font-size: 6px;
+    padding-bottom: 70px;
+  }
+  .footer-trip .footer-trip-content p {
+    margin: 0;
+  }
+  .mobile {
+    display: flex;
+  }
+}
+@media screen and (max-width: 414px) {
+  .mobile {
+    display: flex;
+  }
+}

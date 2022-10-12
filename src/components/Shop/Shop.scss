@@ -1,0 +1,274 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+.shop {
+  max-width: 1200px;
+  margin: 120px auto 30px;
+  background-color: white;
+  padding-top: 10px;
+  @include mobile {
+    margin: 20px auto 30px;
+  }
+  .title1 {
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+    color: #4c4948;
+    @include mobile {
+      font-size: 28px;
+    }
+    img {
+      position: relative;
+      top: -20px;
+      width: 30%;
+    }
+  }
+  main {
+    padding: 20px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    .view {
+      max-width: 980px;
+      margin: auto;
+      .cart {
+        margin-bottom: 20px;
+        .row-title {
+          display: flex;
+          font-weight: bold;
+          justify-content: space-around;
+          padding: 10px;
+          margin: 0px auto;
+        }
+        .list {
+          border: solid 1px #979797;
+          padding: 10px 15px;
+        }
+      }
+      .target {
+        display: flex;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #e8e8e8;
+        > .country {
+          flex: auto;
+          > span {
+            margin-right: 10px;
+            vertical-align: middle;
+          }
+          > select {
+            background-color: #f3f3f3;
+            padding: 10px;
+            border-radius: 4px;
+            @include mobile {
+              padding: 5px;
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+      .reminder {
+        margin-bottom: 20px;
+        line-height: 1.5em;
+      }
+      .recipient {
+        margin-bottom: 30px;
+        > .title {
+          border-bottom: 1px solid #3f3a3a;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+          font-weight: bold;
+        }
+        > .line {
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px;
+          @include mobile {
+            flex-wrap: wrap;
+          }
+          > .text {
+            flex: none;
+            width: 180px;
+            @include mobile {
+              width: 100%;
+              margin-bottom: 5px;
+            }
+          }
+          > .input {
+            flex: auto;
+            > label {
+              margin-right: 10px;
+              .time {
+                vertical-align: middle;
+              }
+            }
+            > input {
+              padding: 5px;
+              width: 200px;
+              border-radius: 4px;
+              border: solid 1px #979797;
+              @include mobile {
+                width: 80%;
+                margin-top: 5px;
+              }
+            }
+          }
+        }
+      }
+      .payment {
+        margin-bottom: 30px;
+        .title {
+          border-bottom: 1px solid #3f3a3a;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+          font-weight: bold;
+        }
+        .line {
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px;
+          .text {
+            flex: none;
+            width: 180px;
+          }
+          .input {
+            flex: auto;
+            .tpfield {
+              height: 20px;
+              max-width: 300px;
+              margin: 5px 0;
+              padding: 5px;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+      .lottery {
+        .title {
+          border-bottom: 1px solid #3f3a3a;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+          font-weight: bold;
+        }
+        .line {
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px;
+        }
+      }
+      .confirm {
+        border-top: solid 1px #3f3a3a;
+        margin-bottom: 20px;
+        padding-top: 30px;
+        .row {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          padding-bottom: 10px;
+          margin-bottom: 15px;
+          @include mobile {
+            justify-content: center;
+          }
+          .title {
+            flex: none;
+            width: 100px;
+          }
+          .priceView {
+            flex: none;
+            width: 140px;
+            font-size: 1.5em;
+            text-align: right;
+          }
+          > .variant {
+            flex: none;
+            display: flex;
+            width: 300px;
+            order: 1;
+            line-height: 1.5em;
+            font-size: 0.9em;
+            > .picture {
+              flex: none;
+              width: 100px;
+            }
+            .detailes {
+              flex: auto;
+              margin-left: 10px;
+            }
+          }
+          > .qty {
+            flex: auto;
+            order: 3;
+            > select {
+              background-color: #f3f3f3;
+              padding: 10px;
+              border-radius: 4px;
+            }
+          }
+          > .price {
+            flex: auto;
+            order: 4;
+            .unit {
+              font-size: 0.75em;
+            }
+          }
+          > .subtotal {
+            flex: auto;
+            order: 5;
+          }
+          > .remove {
+            flex: none;
+            width: 50px;
+            order: 6;
+            cursor: pointer;
+          }
+          .seperator {
+            flex: none;
+            height: 1px;
+            background-color: black;
+            width: 240px;
+          }
+        }
+      }
+    }
+  }
+}
+button {
+  width: 240px;
+  height: 40px;
+  background-color: black;
+  color: #ffffff;
+  cursor: pointer;
+}
+/*購物車內容*/
+.list {
+  transition: all 1s;
+}
+.listCount {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  padding: 20px 0;
+  opacity: 1;
+}
+.deleteImg {
+  max-width: 25px;
+  max-height: 25px;
+  position: absolute;
+  top: 25%;
+  right: 0;
+  cursor: pointer;
+  @include mobile {
+    right: -3%;
+  }
+}
+.deleteImg img {
+  width: 100%;
+}
+
+/**/

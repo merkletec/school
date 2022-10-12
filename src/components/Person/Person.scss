@@ -1,0 +1,70 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+.log-in {
+  max-width: 1200px;
+  margin: 120px auto 30px;
+  /* background-color: white; */
+  padding-top: 10px;
+  @include mobile {
+    margin: 20px auto 30px;
+  }
+  .title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #4c4948;
+    @include mobile {
+      text-align: center;
+      font-size: 28px;
+    }
+    img {
+      position: relative;
+      top: -20px;
+      width: 30%;
+    }
+  }
+  .content {
+    width: 33%;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: white;
+    @include mobile {
+      width: 80%;
+      margin: 10px auto;
+      padding: 20px;
+      background-color: white;
+    }
+    p {
+      text-align: left;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    input {
+      height: 30px;
+      font-size: 20px;
+      margin-bottom: 20px;
+      margin-right: 15px;
+    }
+    h2 {
+      font-size: 20px;
+      text-align: center;
+    }
+    ul {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    li {
+      margin-right: 20px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+.lotteryBtn {
+  cursor: pointer;
+  display: block;
+  width: 200px;
+  height: 65px;
+  background-color: #f1f1f1;
+  border: 1px solid #707070;
+  border-radius: 50px 0 0 50px;
+  box-shadow: 1px 1px 2px #242424;
+  position: fixed;
+  bottom: 5vw;
+  right: -140px;
+  z-index: 50;
+  transition: all 1s linear;
+  &:hover {
+    right: 0px;
+  }
+  @include pad {
+    bottom: 35vw;
+  }
+  @include mobile {
+    bottom: 30vw;
+  }
+  .lotteryContext {
+    display: flex;
+    margin-top: 8px;
+    img {
+      width: 50px;
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-decoration: none;
+      color: black;
+      li {
+        font-weight: bold;
+      }
+    }
+  }
+}
